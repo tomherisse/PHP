@@ -5,8 +5,9 @@ class Jeux_model extends CI_Model{
  $this->load->database();
  }
  
- public function get_jeux($identifiant){
-    
+ public function get_jeux(){
+    $query = $this->db->get('_jeu');
+    return $query->result_array();
  }
  
  public function add_jeu($id,$lastname,$firstname,$email){

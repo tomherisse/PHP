@@ -5,11 +5,12 @@ public function __construct(){
 parent::__construct();
 $this->load->model('jeux_model');
 $this->load->helper('url');
+$this->load->helper('form');
+$this->load->library('form_validation');
 }
 
 public function index(){
-$this->load->helper('form');
-$this->load->library('form_validation');
+
 $data['title']='Liste des jeux'; // a title to display above thelist
 $data['content']='main'; // template will call 'task_list ' sub -view
 $this->form_validation->set_rules('identifiant','identifiant','required');
@@ -68,7 +69,13 @@ $vmotdepasse=$this->input->post('vmotdepasse');
 
 */
     
-
+public function connexion(){
+    
+}
+    
+public function enregistrer(){
+    
+} 
     
 public function moncompte(){
     $data['content']='mesjeux';
@@ -77,9 +84,14 @@ public function moncompte(){
     echo 'test';
     echo $_POST['identifiant'];
 }
-
+    
+function liste(){
+    $data['jeux'] =  $this->jeux_model->get_jeux();
+    $data['title'] = "La liste des jeux";
+    $this->load->view('listejeux',$data);
+ }
+    
 public function delete($id){
-    $this->load->helper('url');
 $this->jeux_model->delete_jeu($id);
 redirect('/jeux/moncompte/', 'refresh');
 }
