@@ -2,6 +2,9 @@
     <?php echo $title ?>
 </h2>
 <ul>
+<li><a href="<?php echo site_url('jeux/liste')?>">Liste</a></li><li><a href="<?php echo site_url('jeux/index')?>">Connexion</a></li><li>Se Deconnecter</li>
+</ul>
+<ul>
 
     <?php foreach($jeux as $jeu):?>
     <li>
