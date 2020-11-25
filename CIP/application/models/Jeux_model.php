@@ -10,15 +10,13 @@ class Jeux_model extends CI_Model{
     return $query->result_array();
  }
  
- public function add_jeu($id,$lastname,$firstname,$email){
- $data=array(
-	'student'=>$id,
-	'lastname'=>$lastname,
-	'firstname'=>$firstname,
-	'email'=>$email
- );
- return $this->db->insert('student',$data);
- }
+ public function ajouter_collection($id_user,$id_jeu){
+    $data = array (
+        'identifiant' => $id_user,
+        'id' => $id_jeu
+    );
+    $this->db->insert('_collectionne',$data);
+}
     
 public function add_collectionneur($identifiant,$nom,$prenom,$motdepasse){
     $data=array(

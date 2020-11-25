@@ -11,6 +11,7 @@
             <td><?php echo $jeu['titre']; ?></td>
             <td><?php echo $jeu['sortie']; ?></td>
             <td><?php echo $jeu['description']; ?></td>
+            <td><a href="<?php echo site_url('jeux/ajouter_collection?jeu_id=').$jeu["id"];?>" class="btn">Ajouter à ma collection</a></td>
         </tr>
     </li>
     <?php endforeach ?>

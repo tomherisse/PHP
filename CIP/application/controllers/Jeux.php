@@ -95,6 +95,12 @@ public function delete($id){
 $this->jeux_model->delete_jeu($id);
 redirect('/jeux/moncompte/', 'refresh');
 }
-	
+    
+public function ajouter_collection(){
+    $id_jeu = $this->input->get('id');
+    $id_user = $this->session->login;
+    $this->jeux_model->ajouter_collection($id_user,$id_jeu);
+    redirect('jeux/liste');
+}
 }
 ?>
